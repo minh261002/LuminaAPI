@@ -3,10 +3,33 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "typecheck": "bunx tsc -p tsconfig.json --noEmit",
+    "build": "bun build ./src/index.ts --outdir dist --target bun",
+    "start": "bun dist/index.js",
+    "lint": "bunx eslint .",
+    "lint:fix": "bunx eslint . --fix",
+    "prettier": "bunx prettier --check .",
+    "prettier:fix": "bunx prettier --write ."
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@eslint/js": "^9.39.1",
+    "@types/bun": "latest",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "typescript-eslint": "^8.46.4"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
+    "tsc-alias": "^1.8.16",
+    "tsx": "^4.20.6"
   }
 }
